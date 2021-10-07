@@ -1,16 +1,20 @@
+from calendar import day_name
+import datetime
 from django.db import models
-from django.db.models.enums import Choices
+from django.urls import reverse
 
-# Create your models here.
 
-class Events(models.Model):
-    
- title=models.CharField(max_length=12)
- event_description=models.CharField(max_length=12)
- date=models.DateField()
- event_venue=models.CharField(max_length=15)
- event_link=models.URLField()
- attendees=models.CharField(max_length=18)
- total_attendees=models.PositiveSmallIntegerField()
- start_time=models.CharField(max_length=10)
- end_time=models.CharField(max_length=10)
+class Event(models.Model):
+  title = models.CharField(max_length=200)
+  start_time = models.DateTimeField(default=datetime.date.today)
+  end_time = models.DateTimeField(default=datetime.date.today)
+  day_name = models.DateTimeField(default=datetime.date.today)
+  get_date= models.DateTimeField(default=datetime.date.today)
+
+
+  def __str__(self):
+    return self.title
+  @property
+  def get_date(self):
+     url = reverse('event_edit', args=(self.id,))
+     return f'<p>{self.title}</p><a href="{url}">edit</a>'

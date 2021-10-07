@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
+
 <body>
-    <table>
+    <style>
+        table, td, th {
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 15px;
+    }
+    th{
+      background-color:blue;
+    }
+    tr:hover {
+      background-color:blueviolet ;
+      cursor: pointer;
+    }
+    </style>
+<table>
+    <tr >
+            <th >first_name </th>
+            <th>last_name</th>
+            <th>age</th>
+            <th>nationality</th>
+            <th>guardian_name</th>
+            <th>guardian_phonenumber</th>
+            <th>gender</th>
+            <th>email</th>
+            
+            <th>phone_number</th>
+            <th>city</th>
+           <th>language</th>
+           <th>image</th>
+            <th>Edit</th>
+            <th>delete</th>
+            <th>profile</th>
+       </tr>
+        {%for student in students%}
         <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Age</th>
+        <td>{{student.first_name}}</td>
+        <td>{{student.last_name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.nationality}}</td>
+        <td>{{student.guardian_name}}</td>
+        <td>{{student.guardian_phonenumber}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.phone_number}}</td>
+        <td>{{student.city}}</td>
+        <td>{{student.language}}</td>
+
+        {% if student.image %}
+            <td><img src="{{student.image.url}}" width="45"></td>
+            {%endif%}
+        <td><a href="{% url 'edit_student' id=student.id %}">Edit</a></td>
+        <td><a href="{% url 'delete_student' id=student.id %}">delete</a></td>
+        <td><a href="{% url 'student_profile' id=student.id %}">profile</a></td>
+        
+
         </tr>
-        { %for student in students%}
-        <tr>
-            <td>{{student.FirstName}}</td>
-            <td>{{student.LastName}}</td>
-            <td>{{student.Age}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        {%endfor%}
+</table>
 </body>
 </html>

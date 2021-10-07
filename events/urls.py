@@ -1,11 +1,11 @@
+
 from django.urls import path
-from.views import register_events
-from django.conf import settings
-from django.conf import urls
-from django.conf.urls import url
-from django.conf.urls.static import static
+from . import views
+from.views import Calendar
 
-urlpatterns={
-    path("register/",register_events,name="register_events"),
+app_name='events'
+urlpatterns = [
+path("register/",views.CalendarView.as_view(),name="calender"),
+path("calender/",views.calender,name='calender'),
 
-}
+]

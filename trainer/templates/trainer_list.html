@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table, td, th {
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 15px;
+    }
+    th{
+      background-color:blue;
+    }
+    tr:hover {
+      background-color:blueviolet ;
+      cursor: pointer;
+    }
+    </style>
+    <table>
+        <tr>
+            <th>first_name</th>
+            <th>last_name}</th>
+            <th>phone_number</th>
+            <th>gender</th>
+            <th>image</th>
+            <th>Edit</th>
+            <th>delete</th>
+            <th>profile</th>
+        </tr>
+{%for trainer in trainer%}
+        <tr>
+            <td>{{trainer.first_name}}</td>
+            <td>{{trainer.last_name}}</td>
+            <td>{{trainer.phone_number}}</td>
+            <td>{{trainer.gender}}</td>
+            {% if trainer.image %}
+            <td><img src="{{trainer.image.url}}" width="45"></td>
+            {%endif%}
+        <td><a href="{% url 'edit_trainer' id=trainer.id %}">Edit</a></td>
+        <td><a href="{% url 'delete_trainer' id=trainer.id %}">delete</a></td>
+        <td><a href="{% url 'trainer_profile' id=trainer.id %}">profile</a></td>
+        
+        </tr>
+ {%endfor%}
+    </table>
+</body>
+</html>

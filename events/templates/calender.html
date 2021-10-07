@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body {
+    font-family: "ptsans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .info {
+      border-color: rgb(38, 141, 132);
+      color:rgb(31, 149, 153);
+    }
+    .info:hover {
+      background:palevioletred;
+      color: white;
+    }
+    .info {
+      border-color: rgb(22, 179, 171);
+      color:rgb(26, 177, 182);
+    }
+    .info:hover {
+      background:rgb(19, 138, 132);
+      color: white;
+    }
+  .container {
+          margin-top: 10px;
+          background-color: white;
+          margin-left: 30%;
+          width: 500px;
+          border:3px solid purple;
+          box-shadow: 8px 8px 8px 9px rgb(179, 123, 179);
+          border-radius: 10px;
+      }
+      button{
+          background-color: purple;
+          color: white;
+          border-radius: 10px;
+          padding: 10px;
+          align-items: center;
+          width: 300px;
+          margin-right: 60px;
+          text-decoration: none;
+      }
+      h1
+       {padding-top: 10px;
+        color:slateblue;
+        margin-left: 100px;
+        text-align: center;
+      }
+      p{color: red;
+      }
+      form{
+          padding-top: 20px;
+          padding-left: 80px;
+          padding-bottom: 20px;
+      }
+      .form-group{
+        border-color: purple;
+      }
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+  .clearfix {
+    margin: 15px;
+  }
+  .calender {
+    width: 98%;
+    margin: auto;
+    font-size: 13px;
+  }
+  .calender tr, .calender td {
+    border: 1px solid black;
+  }
+  .calender th {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .calender td {
+    width: 200px;
+    height: 150px;
+    padding: 20px 0px 0px 5px;
+  }
+  .month {
+    font-size: 25px;
+  }
+  .date {
+    font-size: 16px;
+  }
+  ul {
+    height: 100%;
+    padding: 0px 5px 0px 20px;
+  }
+  a {
+  color: rgb(179, 123, 179);
+  text-decoration: none;
+  font-size: 20px;
+  }
+</style>
+<body>
+  <h1>Events Calender</h1>
+{% block content %}
+<div class="clearfix">
+  <a class="btn btn-info left" href="{'% url 'calender' %}?{'{ prev_month }}"> Previous Month</a></button>
+  <a class="btn btn-info right" href="{'% url 'calender' %}?{'{ next_month }}"> Next Month </a>
+</div>
+{{ calendar }}
+{% endblock %} 
+
+</body>
+</html>
+
+
+

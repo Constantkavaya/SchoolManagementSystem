@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .card {
+  border: 1px solid #ddd;
+  border: 20px solid rgb(179, 56, 179);
+  border-radius: 1%;
+  padding: 3px;
+  width: 320px;
+  text-align: center;
+}
+
+.card img:hover {
+  box-shadow: 0 0 8px 7px rgba(15, 15, 15, 0.5);
+}
+img{
+          text-align: center;
+          width: 300px;
+          height: 300px;
+      }
+.content{
+  text-align: center;
+  font-size: 12px;
+  color: blueviolet;
+}
+</style>
+<div class="card">
+    <img  src="{{student.image.url}}">
+
+    <div class="content">
+      <h2>{{student.first_name}}</h2>
+      <h2>{{student.last_name}}</h2>
+      <h2>{{student.age}}</h2>
+    </div>
+    </div>
+</body>
+ </html>
